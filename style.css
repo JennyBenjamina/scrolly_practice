@@ -36,6 +36,10 @@ a:hover {
   /* border-bottom: 2px solid currentColor; */
 }
 
+svg {
+  color: tan;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
