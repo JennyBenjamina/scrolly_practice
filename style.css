@@ -81,12 +81,20 @@ nav {
 }
 
 .nav__right > * {
-  margin-right: 1.5rem;
+  margin-right: 0;
 }
 
 .container {
   margin: 30px auto;
   padding: 0 15px;
+}
+
+nav.container::before {
+  content: '';
+  height: 100vh;
+  width: 1px;
+  background-color: black;
+  position: absolute;
 }
 
 @media (min-width: 768px) {
@@ -142,6 +150,15 @@ img.card__img {
   position: relative;
 }
 
+#intro::after {
+  content: '';
+  width: 85%;
+  height: 1px;
+  background-color: black;
+  position: absolute;
+  left: 4%;
+}
+
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
@@ -174,7 +191,14 @@ img.card__img {
 }
 
 #intro {
-  margin-bottom: 320px;
+  /* margin-bottom: 320px; */
+  height: 100vh;
+}
+
+.tab {
+  position: absolute;
+  /* border: 1px solid black; */
+  bottom: 0;
 }
 
 #outro {
