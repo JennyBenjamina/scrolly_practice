@@ -317,7 +317,7 @@ article {
   margin: 0 auto 2rem auto;
   margin-bottom: 15rem;
   color: #fff;
-  background-color: #1ec846a1;
+  background-color: #014e13a1;
 }
 
 .step:last-child {
@@ -325,7 +325,7 @@ article {
 }
 
 .step.is-active p {
-  background-color: rgb(124 225 148 / 80%);
+  background-color: rgba(151, 233, 170, 0.8);
   color: #3b3b3b;
 }
 
@@ -333,5 +333,5 @@ article {
   text-align: center;
   padding: 1rem;
   font-size: 1.5rem;
-  background-color: #1ec846a1;
+  background-color: rgba(7, 77, 23, 0.377);
 }
