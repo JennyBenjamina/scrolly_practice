@@ -335,3 +335,20 @@ article {
   font-size: 1.5rem;
   background-color: rgba(7, 77, 23, 0.377);
 }
+
+/* Footer */
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid black;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col > * {
+  margin-top: 10px;
+  font-size: 1rem;
+}
