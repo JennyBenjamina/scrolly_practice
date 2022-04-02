@@ -49,6 +49,31 @@ function init() {
 // kick things off
 init();
 
+//cursor
+const cursorRounded = document.querySelector('#custom-cursor');
+
+const moveCursor = (e) => {
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
+
+  cursorRounded.style.transform = `translate3d(${mouseX}px, ${
+    mouseY - 94
+  }px, 0)`;
+  console.log(mouseX);
+};
+
+window.addEventListener('mousemove', moveCursor);
+
+//end cursor
+
+//hideloading
+function hideLoading() {
+  document.querySelector('.loading-page').style.display = 'none';
+}
+window.addEventListener('click', hideLoading);
+
+//end hideloading
+
 },{"scrollama":2}],2:[function(require,module,exports){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :

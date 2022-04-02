@@ -1,7 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@500&family=Inria+Serif&display=swap');
+
+/* Voyage font */
 
 * {
+  --main: black;
+  --background: tan;
   box-sizing: border-box;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 html,
@@ -16,6 +21,7 @@ body {
   min-height: 1280px;
   color: #3b3b3b;
   font-size: 24px;
+  display: block;
 }
 
 p,
@@ -146,7 +152,7 @@ img.card__img {
   font-family: 'Cookie', cursive;
   font-size: 10rem;
   transform: rotate(350deg);
-  top: -70px;
+  top: 0;
   position: relative;
 }
 
@@ -351,4 +357,191 @@ article {
 .col > * {
   margin-top: 10px;
   font-size: 1rem;
+}
+
+/* Loading Page */
+.loading-page {
+  position: fixed;
+  z-index: 999;
+  background-color: var(--main);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: 0.5s hideLoading 3s 1 linear forwards;
+  animation-fill-mode: forwards;
+}
+
+.loading-page svg {
+  width: 200px;
+}
+
+svg {
+  max-width: calc(100%);
+  max-height: calc(100%);
+  transition: fill 0.3s;
+}
+
+.loading-bar {
+  width: 200px;
+  height: 10px;
+  overflow: hidden;
+  margin-top: 40px;
+  border-bottom: 1px solid var(--background);
+}
+
+/* this makes the transition from loadingPage to regular page */
+@keyframes hideLoading {
+  0% {
+    opacity: 1;
+    display: block;
+    pointer-events: auto;
+  }
+  99% {
+    opacity: 0;
+    display: block;
+    pointer-events: auto;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+  }
+}
+
+.salamander,
+.salamander-2 {
+  width: 60%;
+  margin-left: 10px;
+  height: auto;
+  position: absolute;
+  animation: 5s walking linear infinite;
+}
+
+/* this moves the legs of the salamander */
+.salamander-parts {
+  animation: 0.5s hideShow steps(2, jump-none) infinite;
+}
+
+/* this makes the scrolling letters have one col missing */
+/* :not(svg) {
+  transform-origin: 0px 0px;
+} */
+
+/* salamander moves from left to right */
+@keyframes walking {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}
+
+/* salamander's leg moves */
+@keyframes hideShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* rainbow page */
+.books,
+.book-single {
+  flex: 11 0 0;
+}
+
+.books-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: stretch;
+}
+
+.book {
+  transition: all 0.3s;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.book-inner {
+  position: absolute;
+  /* overflow: hidden; temporary commented */
+  width: 100%;
+  height: 100%;
+}
+
+/*font inside the columns*/
+.voyage.large {
+  font-size: 20vw;
+  line-height: 0.43;
+}
+
+.voyage {
+  font-family: 'Inria Serif', serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/* book ticker */
+.book-ticker {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transform: rotate(180deg);
+  height: 100vh;
+}
+
+.book:nth-of-type(5n + 1) span {
+  animation-delay: -1s;
+}
+
+.book-ticker span {
+  padding-left: 2.4vw;
+  white-space: nowrap;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  animation: 40s bookTicker linear infinite;
+  animation-play-state: running;
+}
+
+@keyframes bookTicker {
+  0% {
+    transform: translate(0, 100vh);
+  }
+  100% {
+    transform: translate(0, -100%);
+  }
+}
+
+/* Custom Cursor */
+#custom-cursor {
+  display: none;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border: 2px solid rgb(59, 10, 10);
+  border-radius: 50%;
+  opacity: 1;
+  background-color: tan;
+  pointer-events: none;
+  z-index: 99999999;
+  /* this created lag */
+  /* transition: transform ease-out 0.15s, border 0.5s, opacity 0.5s, */
+  /* background-color 0.5s; */
+}
+
+.custom-cursor-moved > * {
+  cursor: none;
 }
